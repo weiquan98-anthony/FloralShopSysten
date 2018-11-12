@@ -19,8 +19,9 @@ public class CatalogOrder {
     private LinkedList<Integer> itemQuantity = new LinkedList<>();
     private String DeliveryMethod;
     private String paymentStatus;
+    private double subtotal;
 
-    public CatalogOrder(String OrderID, String StaffID, String CustID, Timestamp orderTime, LinkedList<Item> orderedItems, String DeliveryMethod,LinkedList<Integer> itemQuantity, String paymentStatus) {
+    public CatalogOrder(String OrderID, String StaffID, String CustID, Timestamp orderTime, LinkedList<Item> orderedItems, String DeliveryMethod,LinkedList<Integer> itemQuantity, String paymentStatus ){
         this.OrderID = OrderID;
         this.StaffID = StaffID;
         this.CustID = CustID;
@@ -28,6 +29,15 @@ public class CatalogOrder {
         this.orderedItems = orderedItems;
         this.DeliveryMethod = DeliveryMethod;
         this.paymentStatus = paymentStatus;
+
+    }
+
+    public double getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(double subtotal) {
+        this.subtotal = subtotal;
     }
 
     public String getPaymentStatus() {

@@ -23,8 +23,11 @@ public class AssignmentD {
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String[] args) {
         // TODO code application logic 
+        LinkedList<Payment> paymentList = new LinkedList<>();
+        LinkedList<Payment> tempList = new LinkedList<>();
         int choice = 0;
         System.out.println("*****Please select your choice: *****" + "\n" + "1. Order Pick Up List" + "\n2. Update Payment Status");
         Scanner scan = new Scanner(System.in);
@@ -39,12 +42,19 @@ public class AssignmentD {
         if(choice == 1){
         listOrder();
         }else if(choice ==2){
-            updatePaymentStaus();
+            tempList = updatePaymentStaus();
+            
+            for (int i=0;i<tempList.size();i++){
+                paymentList.add(tempList.get(i));
+            }
+            
+            
         }
     }
     
     //("Order001", "S001", "C001", currentTimestamp, orderedItems, "Pick Up", itemQuantity));
     public static void listOrder(){
+       
         Calendar calendar = Calendar.getInstance();
         java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(calendar.getTime().getTime());
         LinkedList<CatalogOrder> orderList = new LinkedList<>();
@@ -70,7 +80,8 @@ public class AssignmentD {
         
     }
     
-    public static void updatePaymentStaus(){
+    public static LinkedList<Payment> updatePaymentStaus(){
+         LinkedList<Payment> paymentList = new LinkedList<>();
         Calendar calendar = Calendar.getInstance();
         java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(calendar.getTime().getTime());
         LinkedList<CatalogOrder> orderList = new LinkedList<>();
@@ -96,16 +107,25 @@ public class AssignmentD {
                                 + "Payment Status: " + orderList.get(i).getPaymentStatus() + "\n" + "*****************************");
            
         }
-        System.out.println("Please enter the order ID that you wish to update");
+         String userInput="";
+        do{
+            System.out.println("Please enter the order ID that you wish to update\n Enter 0 to back to menu.");
+        
         Scanner scan = new Scanner(System.in);
-        String userInput = "";
+         userInput = "";
         userInput = scan.next();
         for(int i=0; i<orderList.size(); i++){
             if(userInput.equals(orderList.get(i).getOrderID())){
                 orderList.get(i).setPaymentStatus("Paid");
-                System.out.println(orderList.get(i).getPaymentStatus());
+                System.out.print("Order has been paid!\n");
+                 Payment payment = new Payment("P0001", orderList.get(i).getOrderID(), orderList.get(i).getStaffID(), orderList.get(i).getCustID(), 22.0);
+                 paymentList.add(payment);
             }
         }
+        }while(!userInput.equals("0"));
+        
+       
+        return paymentList;
         
     }
     

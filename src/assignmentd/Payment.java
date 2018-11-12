@@ -17,9 +17,9 @@ public class Payment{
     private String orderId;
     private String staffId;
     private String custId;
-    private String paymentAmount;
+    private double paymentAmount;
 
-    public Payment(String paymentId, String orderId, String staffId, String custId, String paymentAmount) {
+    public Payment(String paymentId, String orderId, String staffId, String custId, double paymentAmount) {
         this.paymentId = paymentId;
         this.orderId = orderId;
         this.staffId = staffId;
@@ -59,11 +59,11 @@ public class Payment{
         this.custId = custId;
     }
 
-    public String getPaymentAmount() {
+    public double getPaymentAmount() {
         return paymentAmount;
     }
 
-    public void setPaymentAmount(String paymentAmount) {
+    public void setPaymentAmount(double paymentAmount) {
         this.paymentAmount = paymentAmount;
     }
 
