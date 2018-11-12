@@ -38,6 +38,8 @@ public class Customize {
             if(choice==1 || choice==2 || choice==3){
                 customList.add(choice);
                 valid = true;
+            }else{
+                System.out.println("Please enter choices given.");
             }    
         }while(valid != true);
         
@@ -51,6 +53,8 @@ public class Customize {
             if(choice==1 || choice==2 || choice==3){
                 customList.add(choice);
                 valid = true;
+            }else{
+                System.out.println("Please enter choices given.");
             }
         }while(valid != true);
         
@@ -64,6 +68,8 @@ public class Customize {
             if(choice==1 || choice==2 || choice==3){
                 customList.add(choice);
                 valid = true;
+            }else{
+                System.out.println("Please enter choices given.");
             }
         }while(valid != true);
         
@@ -77,6 +83,8 @@ public class Customize {
             if(choice==1 || choice==2 || choice==3){
                 customList.add(choice);
                 valid = true;
+            }else{
+                System.out.println("Please enter choices given.");
             }
         }while(valid != true);
         
@@ -91,6 +99,8 @@ public class Customize {
             if(choice==1 || choice==2 || choice==3){
                 customList.add(choice);
                 valid = true;
+            }else{
+                System.out.println("Please enter choices given.");
             }
         }while(valid != true);
         
