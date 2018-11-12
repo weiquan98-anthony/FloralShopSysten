@@ -20,7 +20,6 @@ import java.util.Scanner;
  * @author admin
  */
 public class AssignmentD {
-
     /**
      * @param args the command line arguments
      */
