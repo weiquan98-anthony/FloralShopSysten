@@ -26,97 +26,73 @@ public class Customize {
         currentCust.setName("Jason");
         
         int choice;
+        boolean valid = false;
         
         //Step 1
-        System.out.println("Step one: Select flower arrangement style. \n"
-                + "1. Traditional \n"
-                + "2. Oriental \n"
-                + "3. Modern");
-        choice = scan.nextInt();
-        if(choice==1 || choice==2 || choice==3){
-            customList.add(choice);
-        }else{
+        do{
             System.out.println("Step one: Select flower arrangement style. \n"
                 + "1. Traditional \n"
                 + "2. Oriental \n"
-                + "3. Modern \n"
-                + "Please enter choices given.");
+                + "3. Modern");
             choice = scan.nextInt();
-            customList.add(choice);
-        }
+            if(choice==1 || choice==2 || choice==3){
+                customList.add(choice);
+                valid = true;
+            }    
+        }while(valid != true);
         
         //Step 2
-        System.out.println("Step two: Select flower arrangment size. \n"
-                + "1. Large \n"
-                + "2. Medium \n"
-                + "3. Small");
-        choice = scan.nextInt();
-        if(choice==1 || choice==2 || choice==3){
-            customList.add(choice);
-        }else{
+        do{
             System.out.println("Step two: Select flower arrangment size. \n"
                 + "1. Large \n"
                 + "2. Medium \n"
-                + "3. Small \n"
-                + "Please enter choices given.");
+                + "3. Small");
             choice = scan.nextInt();
-            customList.add(choice);
-        }
+            if(choice==1 || choice==2 || choice==3){
+                customList.add(choice);
+                valid = true;
+            }
+        }while(valid != true);
         
         //Step 3
-        System.out.println("Step three: Select flowers. \n"
-                + "1. Jasmine \n"
-                + "2. Lily \n"
-                + "3. Rose");
-        choice = scan.nextInt();
-        if(choice==1 || choice==2 || choice==3){
-            customList.add(choice);
-        }else{
+        do{
             System.out.println("Step three: Select flowers. \n"
                 + "1. Jasmine \n"
                 + "2. Lily \n"
-                + "3. Rose \n"
-                + "Please enter choices given.");
+                + "3. Rose");
             choice = scan.nextInt();
-            customList.add(choice);
-        }
+            if(choice==1 || choice==2 || choice==3){
+                customList.add(choice);
+                valid = true;
+            }
+        }while(valid != true);
         
         //Step 4
-        System.out.println("Step four: Select accessories. \n"
-                + "1. Jeweled Pins \n"
-                + "2. Wispy Feathers \n"
-                + "3. Fabric Butterfly");
-        choice = scan.nextInt();
-        if(choice==1 || choice==2 || choice==3){
-            customList.add(choice);
-        }else{
+        do{
             System.out.println("Step four: Select accessories. \n"
                 + "1. Jeweled Pins \n"
                 + "2. Wispy Feathers \n"
-                + "3. Fabric Butterfly \n"
-                + "Please enter choices given.");
+                + "3. Fabric Butterfly");
             choice = scan.nextInt();
-            customList.add(choice);
-        }
+            if(choice==1 || choice==2 || choice==3){
+                customList.add(choice);
+                valid = true;
+            }
+        }while(valid != true);
         
         currentCust.setCustomList(customList);
         
-        System.out.println("Select your priortity: \n"
-                + "1. Express \n"
-                + "2. Normal \n"
-                + "3. Flexible");
-        choice = scan.nextInt();
-        if(choice==1 || choice==2 || choice==3){
-            customList.add(choice);
-        }else{
+        do{
             System.out.println("Select your priortity: \n"
                 + "1. Express \n"
                 + "2. Normal \n"
-                + "3. Flexible \n"
-                + "Please enter choices given.");
+                + "3. Flexible");
             choice = scan.nextInt();
-            customList.add(choice);
-        }
+            if(choice==1 || choice==2 || choice==3){
+                customList.add(choice);
+                valid = true;
+            }
+        }while(valid != true);
         
         currentCust.setCustomList(customList);
         System.out.println("Congratulations " + currentCust.name +
