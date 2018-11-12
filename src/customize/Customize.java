@@ -31,7 +31,8 @@ public class Customize {
         System.out.println("Step one: Select flower arrangement style. \n"
                 + "1. Traditional \n"
                 + "2. Oriental \n"
-                + "3. Modern");
+                + "3. Modern \n"
+                + "Select your choice: ");
         choice = scan.nextInt();
         if(choice==1 || choice==2 || choice==3){
             customList.add(choice);
