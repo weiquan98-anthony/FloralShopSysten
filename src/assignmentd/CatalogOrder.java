@@ -10,6 +10,7 @@ import java.util.List;
 
 public class CatalogOrder {
     
+    
     private String OrderID;
     private String StaffID;
     private String CustID;
