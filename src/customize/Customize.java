@@ -31,8 +31,7 @@ public class Customize {
         System.out.println("Step one: Select flower arrangement style. \n"
                 + "1. Traditional \n"
                 + "2. Oriental \n"
-                + "3. Modern \n"
-                + "Select your choice: ");
+                + "3. Modern");
         choice = scan.nextInt();
         if(choice==1 || choice==2 || choice==3){
             customList.add(choice);
@@ -100,9 +99,7 @@ public class Customize {
             customList.add(choice);
         }
         
-        System.out.println(customList);
         currentCust.setCustomList(customList);
-        System.out.println(currentCust);
         
         System.out.println("Select your priortity: \n"
                 + "1. Express \n"
@@ -121,9 +118,9 @@ public class Customize {
             customList.add(choice);
         }
         
-        System.out.println(customList);
         currentCust.setCustomList(customList);
-        System.out.println(currentCust);
+        System.out.println("Congratulations " + currentCust.name +
+                ", your Custom Floral Arrangement has been saved.");
     }
     
 }
