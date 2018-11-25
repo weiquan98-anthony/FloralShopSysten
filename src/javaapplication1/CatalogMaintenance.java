@@ -5,6 +5,7 @@
  */
 package javaapplication1;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import static javaapplication1.JavaApplication1.itemsList;
 
@@ -15,6 +16,8 @@ import static javaapplication1.JavaApplication1.itemsList;
 public class CatalogMaintenance implements ItemInterface{
     public boolean a = false;
     public boolean b = false;
+    
+    private ArrayList<Item> stockList = new ArrayList<>();
    
     
     public void CatalogMaintain(){
@@ -22,44 +25,70 @@ public class CatalogMaintenance implements ItemInterface{
         
         int option;
         int count = 0;
+        int catalogmenucount = 0;
         int startcount=0;
-        do{
-            for(int i =0; i<itemsList.size(); i++){
-                if(itemsList.get(i).getQuantity()<=0){
-                    startcount++;
-                    System.out.println("*******NOTICE**********");
-                    System.out.println("Following items are out of stock!!");
-                    System.out.printf("%d.%2s\n\n", startcount, itemsList.get(i).getName());
-                }
+        
+        for(int i =0; i<itemsList.size(); i++){
+            if(itemsList.get(i).getQuantity()<=0){
+                stockList.add(itemsList.get(i));
             }
+        }
+        System.out.println("*******NOTICE**********");
+        System.out.println("Following items are out of stock!!");
+        System.out.println("No.\t  Item\t\t\t" + "   Quantity");
+        System.out.println("******************************************************");
+        for(int j =0; j<stockList.size(); j++){
+            startcount++;
             
+            System.out.printf("%d.%22s\t\t%-25d\n\n", startcount, itemsList.get(j).getName(), itemsList.get(j).getQuantity());
+        }
+        
+        do{
             if(count>=1){
-                System.out.println("Wrong number entered!");
+                System.out.println("Wrong number entered!Please enter again");
             }
             System.out.println("Menu: ");
-            System.out.println("1.View Catalogue");
-            System.out.println("2.Add Item");
-            System.out.println("3.Update Stock");
-            System.out.println("4.Exit");
-            System.out.println("5.Delete ");
+            System.out.println("1.Catalogue Maintenance");
+            System.out.println("2.Exit");
             System.out.println("Please Enter your choice : ");
             option = s.nextInt();
             if(option == 1){
-                showItemList();
-                a = true;
+                do{
+                    if(catalogmenucount>=1){
+                        System.out.println("Wrong number entered!Please enter again");
+                    }
+                    System.out.println("1.View Catalogue");
+                    System.out.println("2.Add Item");
+                    System.out.println("3.Update Stock");
+                    System.out.println("4.Delete Item");
+                    System.out.println("5.Exit");
+                    System.out.println("Please Enter your choice : ");
+                    option = s.nextInt();
+
+                    if(option == 1){
+                        showItemList();
+                        a = true;
+                    }else if(option == 2){
+                        addItem();
+                        a = true;
+                    }else if(option == 3){
+                        updateStock();
+                        a = true;
+                    }
+                    else if(option == 4){
+                        deleteStock();
+                        a = true;
+                    }
+                    else if(option == 5){
+                        System.exit(0);
+                    }
+                    catalogmenucount++;
+                }while(a!=true);
+                
             }else if(option == 2){
-                addItem();
-                a = true;
-            }else if(option == 3){
-                updateStock();
-                a = true;
-            }
-            else if(option == 4){
                 System.exit(0);
             }
-            else if(option == 5){
-                deleteStock();
-            }
+            
             count++;
         }while(a!=true);
     }
