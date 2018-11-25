@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
@@ -54,7 +55,7 @@ public class Runorder {
     
     public static void main(String[] args) throws IOException {
      
-         Timestamp time = new Timestamp(Calendar.getInstance().getTime().getTime());
+        
         categoryList.add(new Item(1,"Sunset Roses", 75, 2, "Bouquet"));
         categoryList.add(new Item(2,"Great Eastern Daisies", 89, 3, "Bouquet")); 
         categoryList.add(new Item(3,"Beyond Purple", 88, 10, "Flower Baskets")); 
@@ -65,9 +66,10 @@ public class Runorder {
       
         quantityItem.add(4);
         orderedItems1.add(new Item(1,"Sunset Roses", 75, 0, "Bouquet"));
-        CatalogOrder hardCoded = new CatalogOrder(1, 1, time, "Pick-Up", "Unpaid",lol.of(2018, 12, 2) , "1", 500.0, orderedItems1, quantityItem);
-        CatalogOrder hardCoded2 = new CatalogOrder(2, 2, time, "Pick-Up", "Unpaid", lol.of(2018, 12, 2), "1", 500.0, orderedItems1, quantityItem);
-        CatalogOrder hardCoded3 = new CatalogOrder(3, 3, time, "Pick-Up", "Unpaid", lol.of(2018, 12, 2), "1", 500.0, orderedItems1, quantityItem);
+        CatalogOrder hardCoded = new CatalogOrder(1, 1,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", lol.of(2018, 12, 2), "1", quantityItem, orderedItems1, 50.0);
+        CatalogOrder hardCoded2 = new CatalogOrder(2, 2,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", lol.of(2018, 12, 2), "1", quantityItem, orderedItems1, 50.0);
+        CatalogOrder hardCoded3 = new CatalogOrder(3, 3,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", lol.of(2018, 12, 2), "1", quantityItem, orderedItems1, 50.0);
+
         
         OrderList.add(hardCoded);
         OrderList.add(hardCoded2);

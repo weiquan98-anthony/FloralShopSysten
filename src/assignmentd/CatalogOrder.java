@@ -3,6 +3,7 @@ package assignmentd;
 import com.sun.jmx.remote.util.OrderClassLoaders;
 import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
@@ -13,7 +14,8 @@ public class CatalogOrder {
     
     private int OrderID;
     private int CustID;
-    private Timestamp orderTime;
+    private LocalTime orderTime;
+    private LocalDate orderDate;
     private LinkedList<Item> orderedItems = new LinkedList<>();
     private LinkedList<Integer> itemQuantity = new LinkedList<>();
     private String DeliveryMethod;
@@ -58,19 +60,21 @@ public class CatalogOrder {
         this.orderStatus = orderStatus;
     }
 
-    public CatalogOrder(int OrderID, int CustID, Timestamp orderTime, String DeliveryMethod, String orderStatus, LocalDate deliveryDate, String deliveryTime, double subtotal
-                        , LinkedList<Item> orderedItems, LinkedList<Integer> itemQuantity) {
+    public CatalogOrder(int OrderID, int CustID, LocalTime orderTime, LocalDate orderDate, String DeliveryMethod, String orderStatus, LocalDate deliveryDate, String deliveryTime, LinkedList<Integer> itemQuantity, LinkedList<Item> orderedItems, double subtotal) {
         this.OrderID = OrderID;
         this.CustID = CustID;
         this.orderTime = orderTime;
+        this.orderDate = orderDate;
         this.DeliveryMethod = DeliveryMethod;
         this.orderStatus = orderStatus;
         this.deliveryDate = deliveryDate;
         this.deliveryTime = deliveryTime;
-        this.subtotal = subtotal;
         this.orderedItems = orderedItems;
         this.itemQuantity = itemQuantity;
+        this.subtotal = subtotal;
     }
+
+    
 
    
 
@@ -124,19 +128,29 @@ public class CatalogOrder {
         this.CustID = CustID;
     }
 
-    public Timestamp getOrderTime() {
+    public LocalTime getOrderTime() {
         return orderTime;
     }
 
-    public void setOrderTime(Timestamp orderTime) {
+    public void setOrderTime(LocalTime orderTime) {
         this.orderTime = orderTime;
     }
 
-    @Override
-
-    public String toString() {
-        return  "OrderID=" + OrderID + "\n CustID=" + CustID + "\n orderTime=" + orderTime + "\n orderedItems=" + orderedItems + "\n itemQuantity=" + itemQuantity + "\n DeliveryMethod=" + DeliveryMethod + "\n orderStatus=" + orderStatus + "\n deliveryDate=" + deliveryDate.getDayOfMonth()+"-"+deliveryDate.getMonthValue()+"-"+deliveryDate.getYear() + "\n deliveryTime=" + deliveryTime + "\n subtotal=" + subtotal;
+    public LocalDate getOrderDate() {
+        return orderDate;
     }
+
+    public void setOrderDate(LocalDate orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    @Override
+    public String toString() {
+        return "CatalogOrder{" + "OrderID=" + OrderID + ", CustID=" + CustID + ", orderTime=" + orderTime + ", orderDate=" + orderDate + ", orderedItems=" + orderedItems + ", itemQuantity=" + itemQuantity + ", DeliveryMethod=" + DeliveryMethod + ", orderStatus=" + orderStatus + ", deliveryDate=" + deliveryDate + ", deliveryTime=" + deliveryTime + ", subtotal=" + subtotal + '}';
+    }
+
+   
+
   
     
 }
