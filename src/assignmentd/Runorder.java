@@ -92,7 +92,8 @@ public class Runorder {
         
         
         order.setCustID(seperateCID(SeperateCustID));
-        order.setOrderTime(new Timestamp(Calendar.getInstance().getTime().getTime()));
+        order.setOrderTime(LocalTime.now());
+        order.setOrderDate(LocalDate.now());
         String check = "";
         do{
         System.out.println("Please select category of product: ");
