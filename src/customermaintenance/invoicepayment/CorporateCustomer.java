@@ -12,20 +12,23 @@ import java.util.logging.Logger;
  * @author User
  */
 public class CorporateCustomer extends Person{
-    int creditLimit;
+    double creditLimit;
     String companyName;
-    Double debt;
+    double debt=0;
+    String status;
+    double remainLimit;
+    double payment=0;
 
-    public CorporateCustomer(int creditLimit, String companyName, int custID, String custName, String custAdd, String custPhone, String custEmail, String custIdentity) {
-        super(custID, custName, custAdd, custPhone, custEmail, custIdentity);
+    public CorporateCustomer( int custID, String custAdd, String custPhone, String custEmail, String custIdentity, int postCode, String state, String town,double creditLimit, String companyName, String status,double remainLimit,double debt,double payment) {
+        super(custID, custAdd, custPhone, custEmail, custIdentity, postCode, state, town);
         this.creditLimit = creditLimit;
         this.companyName = companyName;
+        this.debt=debt;
+        this.status = status;
+        this.remainLimit=remainLimit;
+        this.payment=payment;
     }
 
-    public CorporateCustomer(int creditLimit, String companyName) {
-        this.creditLimit = creditLimit;
-        this.companyName = companyName;
-    }
 
     public String getCompanyName() {
         return companyName;
@@ -42,7 +45,7 @@ public class CorporateCustomer extends Person{
        
     }
 
-    public int getCreditLimit() {
+    public double getCreditLimit() {
         return creditLimit;
     }
 
@@ -50,9 +53,7 @@ public class CorporateCustomer extends Person{
         return custID;
     }
 
-    public String getCustName() {
-        return custName;
-    }
+   
 
     public String getCustAdd() {
         return custAdd;
@@ -70,16 +71,28 @@ public class CorporateCustomer extends Person{
         return custIdentity;
     }
 
-    public void setCreditLimit(int creditLimit) {
+    public double getDebt() {
+        return debt;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public double getRemainLimit() {
+        return remainLimit;
+    }
+
+    public double getPayment() {
+        return payment;
+    }
+
+    public void setCreditLimit(double creditLimit) {
         this.creditLimit = creditLimit;
     }
 
     public void setCustID(int custID) {
         this.custID = custID;
-    }
-
-    public void setCustName(String custName) {
-        this.custName = custName;
     }
 
     public void setCustAdd(String custAdd) {
@@ -103,9 +116,29 @@ public class CorporateCustomer extends Person{
         this.companyName = companyName;
     }
 
+    public void setDebt(double subTotal) {
+        this.debt =subTotal;
+        
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public double setRemainLimit(double remainLimit) {
+        this.remainLimit = remainLimit;
+        remainLimit=creditLimit-debt;
+        return remainLimit;
+    }
+
+    public void setPayment(double payment) {
+        this.payment = payment;
+    }
+    
+
     @Override
     public String toString() {
-        return super.toString() + "CreditLimit = Rm"+creditLimit +"CompanyName = "+companyName;
+        return super.toString() +"\t" +"\t" +"RM"+creditLimit +"\t" +"\t" +companyName+"\t" +"\t"+debt+"\t" +"\t"+ remainLimit+status+payment;
     }
     
    

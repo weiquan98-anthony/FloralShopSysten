@@ -11,19 +11,24 @@ package customermaintenance.invoicepayment;
  */
 public class Person {
     int custID;
-    String custName;
+    
     String custAdd;
     String custPhone;
     String custEmail;
     String custIdentity;
+    int postCode;
+    String state;
+    String town;
 
-    public Person(int custID, String custName, String custAdd, String custPhone, String custEmail, String custIdentity) {
-        this.custID = custID;
-        this.custName = custName;
+    public Person(int custID, String custAdd, String custPhone, String custEmail, String custIdentity,int postCode, String state,String town) {
+        this.custID = custID;  
         this.custAdd = custAdd;
         this.custPhone = custPhone;
         this.custEmail = custEmail;
         this.custIdentity = custIdentity;
+        this.postCode=postCode;
+        this.state=state;
+        this.town=town;
     }
 
   
@@ -36,9 +41,7 @@ public class Person {
         return custID;
     }
 
-    public String getCustName() {
-        return custName;
-    }
+   
 
     public String getCustAdd() {
         return custAdd;
@@ -60,10 +63,20 @@ public class Person {
         return custIdentity;
     }
 
-    public void setCustName(String custName) {
-        this.custName = custName;
+    public int getPostCode() {
+        return postCode;
     }
 
+    public String getState() {
+        return state;
+    }
+
+    public String getTown() {
+        return town;
+    }
+    
+
+ 
     public void setCustAdd(String custAdd) {
         this.custAdd = custAdd;
     }
@@ -80,8 +93,20 @@ public class Person {
         this.custIdentity = custIdentity;
     }
 
+    public void setPostCode(int postCode) {
+        this.postCode = postCode;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public void setTown(String town) {
+        this.town = town;
+    }
+
     @Override
     public String toString() {
-        return "custID=CC100" + custID + ", custName=" + custName + ", custAdd=" + custAdd + ", custPhone=" + custPhone + ", custEmail=" + custEmail + ", custIdentity=" + custIdentity;
+        return  + custID +    custAdd + postCode + state + town + custPhone +custEmail + custIdentity;
     }
 }
