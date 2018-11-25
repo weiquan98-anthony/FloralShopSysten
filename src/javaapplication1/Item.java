@@ -14,15 +14,17 @@ public class Item{
     private String name;
     private double price;
     private int quantity;
+    private String category;
 
     public Item() {
     }
-    
-    public Item(int id, String name, double price, int quantity) {
+
+    public Item(int id, String name, double price, int quantity, String category) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
+        this.category = category;
     }
 
     public int getId() {
@@ -57,8 +59,18 @@ public class Item{
         this.quantity = quantity;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     @Override
     public String toString() {
-        return "name=" + name + ", price=" + price + ", quantity=" + quantity;
+        return "Item{" + "id=" + id + ", name=" + name + ", price=" + price + ", quantity=" + quantity + ", category=" + category + '}';
     }
+
+    
 }
