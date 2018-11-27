@@ -1,0 +1,133 @@
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Jaynas Chan
+ */
+public class FLORALMAIN {
+
+    /**
+     * @param args the command line arguments
+     */
+    //Jason
+    public static List<CorporateCustomer> ccList = new ArrayList<>();
+    public static List<IndividualCustomer> icList = new ArrayList<>();
+    
+    //TF
+    public static LinkedList<CatalogOrder> OrderList = new LinkedList<>();
+    public static LinkedList<Item> categoryList = new LinkedList<>();
+    public static LinkedList<Item> orderedItems1 = new LinkedList<>();
+    public static LinkedList<Integer> quantityItem = new LinkedList<>();
+    
+    //Alex
+    public static LinkedList<Item> itemsList = new LinkedList<Item>(); 
+    
+    
+    //WQ
+    public static LinkedList<Item> orderedItems = new LinkedList<>();
+    
+    
+    public static Scanner sc = new Scanner(System.in);
+    
+    //Methods calling
+    public static CatalogMaintenance catalogMaintenance = new CatalogMaintenance();
+    public static methodCMIP customerMaintenance=new methodCMIP();
+    public static Runorder runord = new Runorder();
+    public static Customize customize = new Customize();
+    public static AssignmentD assd = new AssignmentD();
+    
+    public static void main(String[] args) {
+        
+        
+        
+        //Items hardcoded data
+        Item item1 = new Item(1,"Sunset Roses", 75, 0, "Bouquet");
+        Item item2 = new Item(2,"Great Eastern Daisies", 89, 0, "Bouquet");
+        Item item3 = new Item(3,"Beyond Purple", 88, 10, "Flower Baskets");
+        Item item4 = new Item(4,"Basket Daisy", 99, 8, "Flower Baskets");
+        Item item5 = new Item(5,"Premium Flower Stand", 95, 6, "Flower Stands");
+        
+        //Order hardcoded data
+        CatalogOrder hardCoded = new CatalogOrder(1, 1,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, 12, 2), "1", quantityItem, orderedItems1, 50.0);
+        CatalogOrder hardCoded2 = new CatalogOrder(2, 2,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, 12, 2), "1", quantityItem, orderedItems1, 50.0);
+        CatalogOrder hardCoded3 = new CatalogOrder(3, 3,  LocalTime.now(), LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, 12, 2), "1", quantityItem, orderedItems1, 50.0);
+        
+        //Jason hardcoded
+        ccList.add(new CorporateCustomer(1, "Jalan Sg2", "0123456788", "j@bhd.com","cc", 55300, "Setapak", "KL", 888, "J.BHD", "a",0, 0, 0));
+        ccList.add(new CorporateCustomer(2, "Jalan Sg3", "0123456788", "A@bhd.com","cc", 55300, "Setapak", "KL", 666, "A.BHD", "a",0, 0, 0));
+        
+        
+       //Alex hardcoded
+        itemsList.add(item1);
+        itemsList.add(item2); 
+        itemsList.add(item3); 
+        itemsList.add(item4); 
+        itemsList.add(item5); 
+        
+        //TF hardcoded
+        quantityItem.add(4);
+        categoryList.add(item1);
+        categoryList.add(item2); 
+        categoryList.add(item3); 
+        categoryList.add(item4); 
+        categoryList.add(item5);
+        orderedItems1.add(item1);
+        
+        OrderList.add(hardCoded);
+        OrderList.add(hardCoded2);
+        OrderList.add(hardCoded3);
+        
+        //WQ hardcoded
+        orderedItems.add(item1);
+        orderedItems.add(item2);
+        orderedItems.add(item3);
+        orderedItems.add(item4);
+        orderedItems.add(item5);
+       
+        
+        //CatalogMaintenance catalogMaintenance = new CatalogMaintenance();
+        int select = 0;
+//        do{
+            
+            System.out.println("Floral shop system");
+            System.out.println("1. Customer Maintenance");
+            System.out.println("2. Catalog Maintenance");
+            System.out.println("3. Order");
+            System.out.println("4. Customise Floral");
+            System.out.println("5. Deliver order");
+            System.out.println("6. Exit");
+
+            if(sc.nextInt() == 1){
+//                 select = customerMaintenance.menu();
+                 customerMaintenance.menu();
+            }else if(sc.nextInt() == 2){
+                catalogMaintenance.CatalogMaintain();
+                
+            }else if(sc.nextInt() == 3){
+                runord.Order();
+                
+            }
+            else if(sc.nextInt() == 4){
+                customize.CustomizeFloral();
+             
+            }else if(sc.nextInt() == 5){
+                assd.assignmentd();
+            }else if(sc.nextInt() == 6){
+                System.exit(0);
+            }
+
+//        }while(select!=6);
+    }
+}
