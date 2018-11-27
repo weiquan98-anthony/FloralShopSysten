@@ -14,17 +14,18 @@ import java.util.LinkedList;
  */
 public class Payment{
     private String paymentId;
-    private String orderId;
+    private int orderId;
     private String staffId;
-    private String custId;
+    private Integer custId;
     private double paymentAmount;
+    private String paymentStatus;
 
-    public Payment(String paymentId, String orderId, String staffId, String custId, double paymentAmount) {
+    public Payment(String paymentId, int orderId, Integer custId, double paymentAmount, String paymentStatus) {
         this.paymentId = paymentId;
         this.orderId = orderId;
-        this.staffId = staffId;
         this.custId = custId;
         this.paymentAmount = paymentAmount;
+        this.paymentStatus = paymentStatus;
     }
     
     public String getPaymentId() {
@@ -35,27 +36,19 @@ public class Payment{
         this.paymentId = paymentId;
     }
 
-    public String getOrderId() {
+    public int getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(String orderId) {
+    public void setOrderId(int orderId) {
         this.orderId = orderId;
     }
 
-    public String getStaffId() {
-        return staffId;
-    }
-
-    public void setStaffId(String staffId) {
-        this.staffId = staffId;
-    }
-
-    public String getCustId() {
+    public Integer getCustId() {
         return custId;
     }
 
-    public void setCustId(String custId) {
+    public void setCustId(Integer custId) {
         this.custId = custId;
     }
 
@@ -65,6 +58,14 @@ public class Payment{
 
     public void setPaymentAmount(double paymentAmount) {
         this.paymentAmount = paymentAmount;
+    }
+    
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
     }
 
 }
