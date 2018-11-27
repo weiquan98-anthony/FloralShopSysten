@@ -5,6 +5,7 @@
  */
 package customize;
 
+import com.sun.org.apache.xpath.internal.functions.FuncTrue;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -12,13 +13,18 @@ import java.util.Stack;
  *
  * @author Kai
  */
-public class Customize {
+public class Customize{
 
     /**
      * @param args the command line arguments
      */
+    
+    //public static Functions<Integer> funct = new Functions<Integer>();
+
+    
     public static void main(String[] args) {
         // TODO code application logic here
+
         Scanner scan = new Scanner(System.in);
         
         Stack<Integer> customList = new Stack<>();
@@ -26,6 +32,7 @@ public class Customize {
         currentCust.setName("Jason");
         
         int choice;
+        int choice1 = 0;
         boolean valid = false;
         
         //Step 1
@@ -59,35 +66,45 @@ public class Customize {
         }while(valid != true);
         
         //Step 3
-        do{
+        int count1 = 0;
+        while(choice!=4){
+            count1++;
+            do{
             System.out.println("Step three: Select flowers. \n"
                 + "1. Jasmine \n"
                 + "2. Lily \n"
-                + "3. Rose");
+                + "3. Rose\n"
+                + "4. Exit if no more selection.");
             choice = scan.nextInt();
-            if(choice==1 || choice==2 || choice==3){
+            if(choice==1 || choice==2 || choice==3 || choice==4){
                 customList.add(choice);
                 valid = true;
             }else{
                 System.out.println("Please enter choices given.");
             }
-        }while(valid != true);
+            }while(valid != true);
+        }
+        
         
         //Step 4
-        do{
+        int count2 = 0;
+        while(choice1!=4){
+            count2++;
+            do{
             System.out.println("Step four: Select accessories. \n"
                 + "1. Jeweled Pins \n"
                 + "2. Wispy Feathers \n"
-                + "3. Fabric Butterfly");
-            choice = scan.nextInt();
-            if(choice==1 || choice==2 || choice==3){
-                customList.add(choice);
+                + "3. Fabric Butterfly \n"
+                + "4. Exit if no more selection.");
+            choice1 = scan.nextInt();
+            if(choice1==1 || choice1==2 || choice1==3 || choice1==4){
+                customList.add(choice1);
                 valid = true;
             }else{
                 System.out.println("Please enter choices given.");
             }
-        }while(valid != true);
-        
+            }while(valid != true);
+        }
         currentCust.setCustomList(customList);
         
         do{
@@ -106,7 +123,76 @@ public class Customize {
         
         currentCust.setCustomList(customList);
         System.out.println("Congratulations " + currentCust.name +
-                ", your Custom Floral Arrangement has been saved.");
+                ", your Custom Floral Arrangement has been saved. \n"
+                        + "Your custom flower arrangement are as following: \n");
+        
+        Stack<Integer> show = currentCust.getCustomList();
+        
+        if(show.firstElement() == 1){
+            System.out.println("Your flower arrangement style choice is Traditional.");
+            show.remove(0);
+        }else if(show.firstElement()== 2){
+            System.out.println("Your flower arrangement style choice is Oriental.");
+            show.remove(0);
+        }else{
+            System.out.println("Your flower arrangement style choice is Modern.");
+            show.remove(0);
+        }
+        
+        if(show.firstElement() == 1){
+            System.out.println("Your flower arrangment size is Large.");
+            show.remove(0);
+        }else if(show.firstElement()== 2){
+            System.out.println("Your flower arrangment size is Medium.");
+            show.remove(0);
+        }else{
+            System.out.println("Your flower arrangment size is Small.");
+            show.remove(0);
+        }
+        
+        for(int i=0;i<count1;i++){
+            if(show.firstElement() == 1){
+                System.out.println("Your flower is Jamine.");
+                show.remove(0);
+            }else if(show.firstElement()== 2){
+                System.out.println("Your flower is Lily.");
+                show.remove(0);
+            }else if(show.firstElement()== 3){
+                System.out.println("Your flower is Rose.");
+                show.remove(0);
+            }else if(show.firstElement()== 4){
+                show.remove(0);
+            }
+        }
+        
+        for(int i=0;i<count2;i++){
+            if(show.firstElement() == 1){
+                System.out.println("Your accessories is Jeweled Pins.");
+                show.remove(0);
+            }else if(show.firstElement()== 2){
+                System.out.println("Your accessories is Wispy Feathers.");
+                show.remove(0);
+            }else if(show.firstElement()== 3){
+                System.out.println("Your accessories is Fabric Butterfly.");
+                show.remove(0);
+            }else if(show.firstElement()== 4){
+                show.remove(0);
+            }
+        }
+        
+        if(show.firstElement() == 1){
+            System.out.println("Your priority is Express.");
+            show.remove(0);
+        }else if(show.firstElement()== 2){
+            System.out.println("Your priority is Normal.");
+            show.remove(0);
+        }else{
+            System.out.println("Your priority is Flexible.");
+            show.remove(0);
+        }
+        
+        //funct.additem(show.firstElement());
     }
+        
     
 }
