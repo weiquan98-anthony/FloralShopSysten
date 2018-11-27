@@ -344,6 +344,10 @@ public class methodCMIP implements  customermaintenanceInvoiceInterface{
                             System.out.println("Items List* "+"\t" +"Quantity*");
                            
                             for(int k=0;k<OrderList.get(i).getOrderedItems().size();k++)
+                            {
+                                System.out.print((k+1)+".  "+OrderList.get(i).getOrderedItems().get(k).getName()+"\t");
+                                System.out.println(OrderList.get(i).getItemQuantity().get(k).intValue());
+                            }
                             System.out.println("************************************************************************************************\n\n");
                             }
                         }         
