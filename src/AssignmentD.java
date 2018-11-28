@@ -32,6 +32,8 @@ public class AssignmentD {
     
     // 28/11/2018 3:36AM
     
+    
+    
     Calendar calendar = Calendar.getInstance();
     public java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(calendar.getTime().getTime());
     public static LinkedList<CatalogOrder> orderList = new LinkedList<>();
