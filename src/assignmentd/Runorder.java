@@ -42,6 +42,8 @@ public class Runorder {
      
 
     public static CatalogMaintenance catalogMaintenance = new CatalogMaintenance();
+    
+    
      
      public static int seperateCID(String custID){
          String tempCust ="";
