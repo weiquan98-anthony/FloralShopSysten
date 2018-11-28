@@ -34,6 +34,8 @@ public class AssignmentD {
     
     
     
+    
+    
     Calendar calendar = Calendar.getInstance();
     public java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(calendar.getTime().getTime());
     public static LinkedList<CatalogOrder> orderList = new LinkedList<>();
