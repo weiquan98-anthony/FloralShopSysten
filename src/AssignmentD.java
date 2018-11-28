@@ -24,7 +24,9 @@ public class AssignmentD {
      * @param args the command line arguments
      */
     // 28/11/2018 3:36AM
+    
     public static FLORALMAIN cust = new FLORALMAIN();
+    
     // 28/11/2018 3:36AM
     
     Calendar calendar = Calendar.getInstance();
