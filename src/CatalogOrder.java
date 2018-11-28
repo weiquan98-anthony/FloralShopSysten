@@ -150,7 +150,27 @@ public class CatalogOrder {
 
     @Override
     public String toString() {
-        return "CatalogOrder{" + "OrderID=" + OrderID + ", CustID=" + CustID + ", orderTime=" + orderTime + ", orderDate=" + orderDate + ", orderedItems=" + orderedItems + ", itemQuantity=" + itemQuantity + ", DeliveryMethod=" + DeliveryMethod + ", orderStatus=" + orderStatus + ", deliveryDate=" + deliveryDate + ", deliveryTime=" + deliveryTime + ", subtotal=" + subtotal + '}';
+        String toStringreturn = "---------------------------------------------------\n"+
+                "Order ID :"+ OrderID + "\n"+
+                 "Customer ID :"+ CustID + "\n"+
+              "OrderTime :"+ orderTime.toString() + "\n"+
+              "Order Date :"+ orderDate.toString() + "\n"+
+              "---------------------------------------------------------------";
+              for(int i=0;i<orderedItems.size();i++){
+                toStringreturn += "Ordered Item :"+ orderedItems.get(i).getName() + "\n"+
+                 "Quantity :"+ itemQuantity.get(i).intValue() + "\n";
+              }
+           toStringreturn += "------------------------------------------------------------\n"+
+                   "Delivery Method : "+ DeliveryMethod+"\n"+
+                            "OrderStatus: "+ orderStatus+"\n"+
+                            "Delivery Date : "+ deliveryDate.toString()+"\n";
+           if(deliveryTime!=null){
+           toStringreturn += "Delivery Time :"+deliveryTime+"\n";
+           }
+                           
+                         toStringreturn+=  "Subtotal : "+ subtotal+"\n";
+                                 
+                return toStringreturn;                 
     }
 
    

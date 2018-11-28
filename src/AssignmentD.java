@@ -57,14 +57,14 @@ public class AssignmentD {
         itemQuantity.add(2);
         itemQuantity.add(3);
 
-         orderList.add(new CatalogOrder(1, 1,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, Month.NOVEMBER, 27), "1", itemQuantity, orderedItems, 50.0));
-        orderList.add(new CatalogOrder(2, 2,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, Month.NOVEMBER, 27), "1", itemQuantity, orderedItems, 50.0));
-         orderList.add(new CatalogOrder(3, 3,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, Month.NOVEMBER, 27), "1", itemQuantity, orderedItems, 50.0));
+         orderList.add(new CatalogOrder(1, 1,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, Month.NOVEMBER, 28), "1", itemQuantity, orderedItems, 50.0));
+        orderList.add(new CatalogOrder(2, 2,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, Month.NOVEMBER, 28), "1", itemQuantity, orderedItems, 50.0));
+         orderList.add(new CatalogOrder(3, 3,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, Month.NOVEMBER, 28), "1", itemQuantity, orderedItems, 50.0));
         //hardcode
         iCustomer.add(new IndividualCustomer("Jason", 001, "99, Lorong abc", "012345678", "abc@gmail.com", "Individual", 43300,"Kuala Lumpur", "Cheras"));
-        iCustomerOrder.add(new CatalogOrder(1, 1,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, Month.NOVEMBER, 25), "1", itemQuantity, orderedItems, 50.0));
-        iCustomerOrder.add(new CatalogOrder(2, 2,  LocalTime.now(),LocalDate.now(), "Cash on Delivery", "Unpaid", LocalDate.of(2018, Month.NOVEMBER, 25), "1", itemQuantity, orderedItems, 50.0));
-         iCustomerOrder.add(new CatalogOrder(3, 3,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, Month.NOVEMBER, 25), "1", itemQuantity, orderedItems, 50.0));
+        iCustomerOrder.add(new CatalogOrder(1, 1,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, Month.NOVEMBER, 28), "1", itemQuantity, orderedItems, 50.0));
+        iCustomerOrder.add(new CatalogOrder(2, 2,  LocalTime.now(),LocalDate.now(), "Cash on Delivery", "Unpaid", LocalDate.of(2018, Month.NOVEMBER, 28), "1", itemQuantity, orderedItems, 50.0));
+         iCustomerOrder.add(new CatalogOrder(3, 3,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, Month.NOVEMBER, 28), "1", itemQuantity, orderedItems, 50.0));
         menu();
 
     }
@@ -225,7 +225,7 @@ public class AssignmentD {
         for (int i = 0; i < cherasDeliveryList.size(); i++) {
             //if the date now same as delivery date of the COD
             Integer custId = cherasDeliveryList.get(i).getCustID();
-            if (LocalDate.now().equals(LocalDate.of(2018, Month.NOVEMBER, 27))) {
+            if (LocalDate.now().equals(LocalDate.of(2018, Month.NOVEMBER, 28))) {
                 for (int j = 0; j < iCustomer.size(); j++) {
                     if (custId == iCustomer.get(j).getCustID()) {
                         String custAdd = iCustomer.get(j).getCustAdd();
@@ -243,7 +243,7 @@ public class AssignmentD {
         if (setapakDeliveryList.size() != 0) {
             for (int i = 0; i < setapakDeliveryList.size(); i++) {
                 Integer custId = setapakDeliveryList.get(i).getCustID();
-                if (LocalDate.now().equals(LocalDate.of(2018, Month.NOVEMBER, 25))) {
+                if (LocalDate.now().equals(LocalDate.of(2018, Month.NOVEMBER, 28))) {
                     for (int j = 0; j < iCustomer.size(); j++) {
                         if (custId == iCustomer.get(j).getCustID()) {
                             String custAdd = iCustomer.get(j).getCustAdd();

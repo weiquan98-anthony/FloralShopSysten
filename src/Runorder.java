@@ -29,7 +29,7 @@ public class Runorder {
 //     public static LinkedList<Item> itemsList = new LinkedList<>(); 
 //     public static LinkedList<Item> orderedItems1 = new LinkedList<>();
 //     public static LinkedList<Integer> quantityItem = new LinkedList<>();
-     
+      public static LinkedList<Item> itemsList = new LinkedList<Item>(); 
 
     public static CatalogMaintenance catalogMaintenance = new CatalogMaintenance();
      
@@ -101,17 +101,17 @@ public class Runorder {
             if(userEnterAns==1){
                 
                 if(cust.categoryList.get(i).getCategory().equals("Bouquet")&&cust.categoryList.get(i).getQuantity()!=0){
-                    cust.itemsList.add(cust.categoryList.get(i));
+                    itemsList.add(cust.categoryList.get(i));
                 }
                 
             }else if(userEnterAns==2){
                  if(cust.categoryList.get(i).getCategory().equals("Flower Baskets")&&cust.categoryList.get(i).getQuantity()!=0){
-                    cust.itemsList.add(cust.categoryList.get(i));
+                    itemsList.add(cust.categoryList.get(i));
                 }
             
             }else if(userEnterAns==3){
                  if(cust.categoryList.get(i).getCategory().equals("Flower Stands")&&cust.categoryList.get(i).getQuantity()!=0){
-                    cust.itemsList.add(cust.categoryList.get(i));
+                    itemsList.add(cust.categoryList.get(i));
                 }
             
             }
@@ -123,8 +123,8 @@ public class Runorder {
         System.out.print("--------------------------------------------------------\n");
         System.out.print("Product ID\t\tProduct Name\t\tProduct Price\t\tStock\n");
         
-        for(int i=0;i<cust.itemsList.size();i++){
-           System.out.print("P000"+cust.itemsList.get(i).getId()+"\t\t\t"+cust.itemsList.get(i).getName()+"\t\t\t"+cust.itemsList.get(i).getPrice()+"\t\t\t"+cust.itemsList.get(i).getQuantity()+"\n");
+        for(int i=0;i<itemsList.size();i++){
+           System.out.print("P000"+itemsList.get(i).getId()+"\t\t\t"+itemsList.get(i).getName()+"\t\t\t"+itemsList.get(i).getPrice()+"\t\t\t"+itemsList.get(i).getQuantity()+"\n");
         
         }
         System.out.print("ProductID : ");
@@ -140,7 +140,7 @@ public class Runorder {
       
        int check2=0;       
           for(int i=0;i<orderedItems.size();i++){
-                if(orderedItems.get(i)== cust.itemsList.get(userFlower)){
+                if(orderedItems.get(i)== itemsList.get(userFlower)){
                     
              int itemquantity = itemQuantity.get(i);
              itemQuantity.set(i, itemquantity+quantity);
@@ -149,7 +149,7 @@ public class Runorder {
         }
           
           if(check2==0){
-              orderedItems.add(cust.itemsList.get(userFlower-1));
+              orderedItems.add(cust.categoryList.get(userFlower));
            itemQuantity.add(quantity);
           }
        System.out.print("Order more? (Y/N)");

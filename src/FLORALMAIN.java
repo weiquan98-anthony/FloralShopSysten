@@ -53,7 +53,7 @@ public class FLORALMAIN {
         
         
         //Items hardcoded data
-        Item item1 = new Item(1,"Sunset Roses", 75, 0, "Bouquet");
+        Item item1 = new Item(1,"Sunset Roses", 75, 5, "Bouquet");
         Item item2 = new Item(2,"Great Eastern Daisies", 89, 0, "Bouquet");
         Item item3 = new Item(3,"Beyond Purple", 88, 10, "Flower Baskets");
         Item item4 = new Item(4,"Basket Daisy", 99, 8, "Flower Baskets");
@@ -108,23 +108,24 @@ public class FLORALMAIN {
             System.out.println("4. Customise Floral");
             System.out.println("5. Deliver order");
             System.out.println("6. Exit");
-
-            if(sc.nextInt() == 1){
+            
+            int userEnter = sc.nextInt();
+            if( userEnter == 1){
 //                 select = customerMaintenance.menu();
                  customerMaintenance.menu();
-            }else if(sc.nextInt() == 2){
+            }else if(userEnter == 2){
                 catalogMaintenance.CatalogMaintain();
                 
-            }else if(sc.nextInt() == 3){
+            }else if(userEnter == 3){
                 runord.Order();
                 
             }
-            else if(sc.nextInt() == 4){
+            else if(userEnter == 4){
                 customize.CustomizeFloral();
              
-            }else if(sc.nextInt() == 5){
+            }else if(userEnter == 5){
                 assd.assignmentd();
-            }else if(sc.nextInt() == 6){
+            }else if(userEnter == 6){
                 System.exit(0);
             }
 
