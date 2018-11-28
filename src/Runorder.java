@@ -35,6 +35,7 @@ public class Runorder {
      
     public static FLORALMAIN cust = new FLORALMAIN();
     
+    
      public static int seperateCID(String custID){
          String tempCust ="";
          

@@ -53,7 +53,7 @@ public class FLORALMAIN {
         
         
         //Items hardcoded data
-        Item item1 = new Item(1,"Sunset Roses", 75, 5, "Bouquet");
+        Item item1 = new Item(1,"Sunset Roses", 75, 20, "Bouquet");
         Item item2 = new Item(2,"Great Eastern Daisies", 89, 0, "Bouquet");
         Item item3 = new Item(3,"Beyond Purple", 88, 10, "Flower Baskets");
         Item item4 = new Item(4,"Basket Daisy", 99, 8, "Flower Baskets");
