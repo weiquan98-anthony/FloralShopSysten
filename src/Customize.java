@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package customize;
+
 
 import com.sun.org.apache.xpath.internal.functions.FuncTrue;
 import java.util.Scanner;
@@ -22,7 +22,7 @@ public class Customize{
     //public static Functions<Integer> funct = new Functions<Integer>();
 
     
-    public static void main(String[] args) {
+    public void CustomizeFloral() {
         // TODO code application logic here
 
         Scanner scan = new Scanner(System.in);
