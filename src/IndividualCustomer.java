@@ -1,0 +1,103 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+/**
+ *
+ * @author User
+ */
+public class IndividualCustomer extends Person{
+String custName;
+
+    public IndividualCustomer(String custName, int custID, String custAdd, String custPhone, String custEmail, String custIdentity, int postCode, String state, String town) {
+        super(custID, custAdd, custPhone, custEmail, custIdentity, postCode, state, town);
+        this.custName = custName;
+    }
+   
+
+    public String getCustName() {
+        return custName;
+    }
+
+    public int getCustID() {
+        return custID;
+    }
+
+    public String getCustAdd() {
+        return custAdd;
+    }
+
+    public String getCustPhone() {
+        return custPhone;
+    }
+
+    public String getCustEmail() {
+        return custEmail;
+    }
+
+    public String getCustIdentity() {
+        return custIdentity;
+    }
+
+    public void setCustName(String custName) {
+        this.custName = custName;
+    }
+
+    public void setCustID(int custID) {
+        this.custID = custID;
+    }
+
+    public void setCustAdd(String custAdd) {
+        this.custAdd = custAdd;
+    }
+
+    public void setCustPhone(String custPhone) {
+        this.custPhone = custPhone;
+    }
+
+    public void setCustEmail(String custEmail) {
+        this.custEmail = custEmail;
+    }
+
+    public void setCustIdentity(String custIdentity) {
+        this.custIdentity = custIdentity;
+    }
+
+    public IndividualCustomer() {
+    }
+
+    public int getPostCode() {
+        return postCode;
+    }
+
+    public void setPostCode(int postCode) {
+        this.postCode = postCode;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getTown() {
+        return town;
+    }
+
+    public void setTown(String town) {
+        this.town = town;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+custName;
+    }
+
+    
+    
+}
