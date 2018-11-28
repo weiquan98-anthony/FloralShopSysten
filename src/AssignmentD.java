@@ -45,6 +45,7 @@ public class AssignmentD {
      static LinkedList<Payment> paymentList = new LinkedList<>();
        static LinkedList<Payment> tempList = new LinkedList<>();
 
+
     public void assignmentd() {
         // TODO code application logic  
 
@@ -61,7 +62,8 @@ public class AssignmentD {
         orderList.add(new CatalogOrder(2, 2,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, Month.NOVEMBER, 28), "1", itemQuantity, orderedItems, 50.0));
          orderList.add(new CatalogOrder(3, 3,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, Month.NOVEMBER, 28), "1", itemQuantity, orderedItems, 50.0));
         //hardcode
-        iCustomer.add(new IndividualCustomer("Jason", 001, "99, Lorong abc", "012345678", "abc@gmail.com", "Individual", 43300,"Kuala Lumpur", "Cheras"));
+//        iCustomer.add(new IndividualCustomer("Jason", 1, "99, Lorong abc", "012345678", "abc@gmail.com", "Individual", 43300,"Kuala Lumpur", "Cheras"));
+//        iCustomer.add(new IndividualCustomer("Tf", 2, "99, Lorong abcdef", "012345678", "abcdef@gmail.com", "Individual", 43300,"Kuala Lumpur", "Cheras"));
         iCustomerOrder.add(new CatalogOrder(1, 1,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, Month.NOVEMBER, 28), "1", itemQuantity, orderedItems, 50.0));
         iCustomerOrder.add(new CatalogOrder(2, 2,  LocalTime.now(),LocalDate.now(), "Cash on Delivery", "Unpaid", LocalDate.of(2018, Month.NOVEMBER, 28), "1", itemQuantity, orderedItems, 50.0));
          iCustomerOrder.add(new CatalogOrder(3, 3,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, Month.NOVEMBER, 28), "1", itemQuantity, orderedItems, 50.0));
@@ -210,9 +212,9 @@ public class AssignmentD {
 
             Integer custId = iCustomerOrder.get(i).getCustID();
             if (iCustomerOrder.get(i).getDeliveryMethod() == "Cash on Delivery") {
-                for (int j = 0; j < iCustomer.size(); j++) {
-                    if (custId == iCustomer.get(j).getCustID()) {
-                        if (iCustomer.get(j).getPostCode() == 43200 || iCustomer.get(j).getPostCode() == 43300 || iCustomer.get(j).getPostCode() == 56100) {
+                for (int j = 0; j < cust.iCustomer.size(); j++) {
+                    if (custId == cust.iCustomer.get(j).getCustID()) {
+                        if (cust.iCustomer.get(j).getPostCode() == 43200 || cust.iCustomer.get(j).getPostCode() == 43300 || cust.iCustomer.get(j).getPostCode() == 56100) {
                             cherasDeliveryList.add(iCustomerOrder.get(i));
                         } else {
                             setapakDeliveryList.add(iCustomerOrder.get(i));
@@ -226,11 +228,14 @@ public class AssignmentD {
             //if the date now same as delivery date of the COD
             Integer custId = cherasDeliveryList.get(i).getCustID();
             if (LocalDate.now().equals(LocalDate.of(2018, Month.NOVEMBER, 28))) {
-                for (int j = 0; j < iCustomer.size(); j++) {
-                    if (custId == iCustomer.get(j).getCustID()) {
-                        String custAdd = iCustomer.get(j).getCustAdd();
+                for (int j = 0; j < cust.iCustomer.size(); j++) {
+                    if (custId == cust.iCustomer.get(j).getCustID()) {
+                        String custAdd = cust.iCustomer.get(j).getCustAdd();
+                        String custTown = cust.iCustomer.get(j).getTown();
+                        String custState = cust.iCustomer.get(j).getState();
                         System.out.println("Order ID: " + cherasDeliveryList.get(i).getOrderID() + "\n Order Items" + cherasDeliveryList.get(i).getOrderedItems()
-                                + "\n Address: " + custAdd + "\n************************************************************************************************");
+                                + "\n Address: " + custAdd + "," + custTown
+                                + "," + custState + "\n************************************************************************************************");
 
                     }
                 }
@@ -244,9 +249,9 @@ public class AssignmentD {
             for (int i = 0; i < setapakDeliveryList.size(); i++) {
                 Integer custId = setapakDeliveryList.get(i).getCustID();
                 if (LocalDate.now().equals(LocalDate.of(2018, Month.NOVEMBER, 28))) {
-                    for (int j = 0; j < iCustomer.size(); j++) {
-                        if (custId == iCustomer.get(j).getCustID()) {
-                            String custAdd = iCustomer.get(j).getCustAdd();
+                    for (int j = 0; j < cust.iCustomer.size(); j++) {
+                        if (custId == cust.iCustomer.get(j).getCustID()) {
+                            String custAdd = cust.iCustomer.get(j).getCustAdd();
                             System.out.println("Order ID: " + setapakDeliveryList.get(i).getOrderID() + "\n Order Items" + setapakDeliveryList.get(i).getOrderedItems()
                                     + "\n*********");
 

@@ -37,7 +37,7 @@ public class FLORALMAIN {
     
     //WQ
     public static LinkedList<Item> orderedItems = new LinkedList<>();
-    
+    public static LinkedList<IndividualCustomer> iCustomer = new LinkedList<>();
     
     public static Scanner sc = new Scanner(System.in);
     
@@ -67,7 +67,8 @@ public class FLORALMAIN {
         //Jason hardcoded
         ccList.add(new CorporateCustomer(1, "Jalan Sg2", "0123456788", "j@bhd.com","cc", 55300, "Setapak", "KL", 888, "J.BHD", "a",0, 0, 0));
         ccList.add(new CorporateCustomer(2, "Jalan Sg3", "0123456788", "A@bhd.com","cc", 55300, "Setapak", "KL", 666, "A.BHD", "a",0, 0, 0));
-        
+        iCustomer.add(new IndividualCustomer("Jason", 1, "99, Lorong abc", "012345678", "abc@gmail.com", "Individual", 43300,"Kuala Lumpur", "Cheras"));
+        iCustomer.add(new IndividualCustomer("Tf", 2, "99, Lorong abcdef", "012345678", "abcdef@gmail.com", "Individual", 43300,"Kuala Lumpur", "Cheras"));
         
        //Alex hardcoded
         itemsList.add(item1);
