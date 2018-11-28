@@ -46,7 +46,7 @@ public class Runorder {
     
      
      public static int seperateCID(String custID){
-         String tempCust ="";
+         String tempCust ="wei quan";
          
          for(int i=1;i<custID.length();i++){
              tempCust += custID.charAt(i);
