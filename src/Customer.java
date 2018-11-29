@@ -22,6 +22,7 @@ public class Customer {
         this.customList = Clist;
         this.name = name;
     }
+    
 
     public String getName() {
         return name;
