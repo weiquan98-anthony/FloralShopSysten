@@ -37,7 +37,6 @@ public class CustomerMaintenanceInvoicePayment {
         Item items1 = new Item(1,"Sunset Roses", 75, 2, "Bouquet");
         Item items2 = new Item(2,"Great Eastern Daisies", 89, 3, "Bouquet"); 
      
-        
         itemsList.add(items1);
         itemsList.add(items2); 
       
