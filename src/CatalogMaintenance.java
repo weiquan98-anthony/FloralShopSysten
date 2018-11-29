@@ -30,19 +30,20 @@ public class CatalogMaintenance implements ItemInterface{
         int catalogmenucount = 0;
         int startcount=0;
         
-        for(int i =0; i<cust.itemsList.size(); i++){
-            if(cust.itemsList.get(i).getQuantity()<=0){
-                stockList.add(cust.itemsList.get(i));
-            }
-        }
+//        for(int i =0; i<cust.itemsList.size(); i++){
+//            if(cust.itemsList.get(i).getQuantity()<0){
+//                stockList.add(cust.itemsList.get(i));
+//            }
+//        }
         System.out.println("*******NOTICE**********");
         System.out.println("Following items are out of stock!!");
         System.out.println("No.\t  Item\t\t\t" + "   Quantity");
         System.out.println("******************************************************");
-        for(int j =0; j<stockList.size(); j++){
+        for(int j =0; j<cust.itemsList.size(); j++){
+            if(cust.itemsList.get(j).getQuantity()<=0){
+                System.out.printf("%d.%22s\t\t%-25d\n\n", startcount, cust.itemsList.get(j).getName(), cust.itemsList.get(j).getQuantity());
+            }
             startcount++;
-            
-            System.out.printf("%d.%22s\t\t%-25d\n\n", startcount, cust.itemsList.get(j).getName(), cust.itemsList.get(j).getQuantity());
         }
         
         do{
