@@ -99,13 +99,13 @@ public class CatalogMaintenance implements ItemInterface{
     
     public void showList(){
         int No =0;
-        System.out.println("No. Item\t\t\t" + "   Quantity");
-        System.out.println("*********************************************");
+        System.out.println("No. Item\t\t\t" + "   Quantity\t" + " Category");
+        System.out.println("********************************************************");
             for(int i =0; i<cust.itemsList.size(); i++){
             if(!cust.itemsList.get(i).getName().equals(" ")){
                 No++;
                 
-                System.out.printf("%-3d %-20s \t\t%-2d \n", No, cust.itemsList.get(i).getName(), cust.itemsList.get(i).getQuantity());
+                System.out.printf("%-3d %-20s \t\t%-2d\t%s \n", No, cust.itemsList.get(i).getName(), cust.itemsList.get(i).getQuantity(), cust.itemsList.get(i).getCategory());
             }
         }
     }
@@ -113,7 +113,7 @@ public class CatalogMaintenance implements ItemInterface{
     public void showItemList(){
         int count = 0;
         int No =0;
-        System.out.println("No. Item\t\t\t" + "  Price\t\t    " + "Quantity\t\t" + "Category");
+        System.out.println("No. Item\t\t\t" + "  Price\t\t    " + "Quantity\t\t" + " Category");
         System.out.println("***************************************************************************************");
         for(int i =0; i<cust.itemsList.size(); i++){
             if(!cust.itemsList.get(i).getName().equals(" ")){
