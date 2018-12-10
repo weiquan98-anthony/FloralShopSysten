@@ -48,7 +48,7 @@ public class Runorder {
     
     public void Order() {
      
-            
+          
 //        categoryList.add(new Item(1,"Sunset Roses", 75, 2, "Bouquet"));
 //        categoryList.add(new Item(2,"Great Eastern Daisies", 89, 3, "Bouquet")); 
 //        categoryList.add(new Item(3,"Beyond Purple", 88, 10, "Flower Baskets")); 
@@ -88,6 +88,12 @@ public class Runorder {
         order.setOrderTime(LocalTime.now());
         order.setOrderDate(LocalDate.now());
         String check = "";
+        String clearcart = "";
+        do{
+            if(clearcart.equals("Y")||clearcart.equals("y")){
+                orderedItems.clear();
+                itemQuantity.clear();
+            }
         do{
         System.out.println("Please select category of product: ");
         System.out.println("1.) Bouquet ");
@@ -118,7 +124,7 @@ public class Runorder {
             }
         }
             
-        
+          
         
         System.out.print("Please select desired items :\n");
         System.out.print("--------------------------------------------------------\n");
@@ -154,8 +160,22 @@ public class Runorder {
            itemQuantity.add(quantity);
           }
        System.out.print("Order more? (Y/N)");
+       
+      
+       
        check = input.next();
         }while(check.equals("Y")||check.equals("y"));
+        
+         System.out.println("You have selected the following items :");
+       for(int i=0;i<orderedItems.size();i++){
+           System.out.println("Items :"+orderedItems.get(i).getName());
+           System.out.println("Quantity :"+itemQuantity.get(i).doubleValue());
+           
+       }
+       
+       System.out.println("Do you comfirm this order, you are still allowed to clear the cart and re-pick. (Y/N)");
+       clearcart = input.next();
+        }while(clearcart.equals("Y")||clearcart.equals("y"));
         System.out.println("Please select desired delivery method :");
         System.out.println("1.) Cash-On Delivery");
         System.out.println("2.) Pick-Up");
