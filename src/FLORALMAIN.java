@@ -1,6 +1,7 @@
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -40,7 +41,11 @@ public class FLORALMAIN {
     //WQ
     public static LinkedList<Item> orderedItems = new LinkedList<>();
     public static LinkedList<IndividualCustomer> iCustomer = new LinkedList<>();
-    
+    public static LinkedList<CatalogOrder> orderList = new LinkedList<>();
+     public static LinkedList<CatalogOrder> iCustomerOrder = new LinkedList<>();
+     public static LinkedList<Payment> paymentList = new LinkedList<>();
+    //  public  static LinkedList<Payment> tempList = new LinkedList<>();
+
     public static Scanner sc = new Scanner(System.in);
     
     //Methods calling
@@ -71,10 +76,40 @@ public class FLORALMAIN {
         Promotion promotion1 = new Promotion(1, "Year End Sales", LocalDate.of(2018, 12, 1), LocalDate.of(2018, 12, 31), itemPromotionList);
         
         //Jason hardcoded
-        ccList.add(new CorporateCustomer(1, "Jalan Sg2", "0123456788", "j@bhd.com","cc", 55300, "Setapak", "KL", 888, "J.BHD", "a",0, 0, 0));
-        ccList.add(new CorporateCustomer(2, "Jalan Sg3", "0123456788", "A@bhd.com","cc", 55300, "Setapak", "KL", 666, "A.BHD", "a",0, 0, 0));
-        iCustomer.add(new IndividualCustomer("Jason", 1, "99, Lorong abc", "012345678", "abc@gmail.com", "Individual", 43300,"Kuala Lumpur", "Cheras"));
+        ccList.add(new CorporateCustomer(6, "Jalan Sg2", "0123456788", "j@bhd.com","cc", 55300, "Setapak", "KL", 888, "J.BHD", "",0, 0, 0));
+        ccList.add(new CorporateCustomer(7, "Jalan Sg3", "0123456788", "A@bhd.com","cc", 55300, "Setapak", "KL", 666, "A.BHD", "",0, 0, 0));
+        ccList.add(new CorporateCustomer(5, "Jalan Sg4", "0123456788", "B@bhd.com", "cc", 55300, "Setapak", "KL", 999, "B.BHD", "", 0, 0, 0));
+        
+
+        
+         //WQ hardcoded
+        orderedItems.add(item1);
+        orderedItems.add(item2);
+        orderedItems.add(item3);
+        orderedItems.add(item4);
+        orderedItems.add(item5);
+       
+        
+        quantityItem.add(4);
+        
+        orderList.add(new CatalogOrder(1, 1,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Paid", LocalDate.of(2018, Month.DECEMBER, 10), "1", quantityItem, orderedItems, 50.0));
+        orderList.add(new CatalogOrder(2, 2,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, Month.DECEMBER, 10), "1", quantityItem, orderedItems, 50.0));
+         orderList.add(new CatalogOrder(3, 3,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, Month.DECEMBER, 10), "1", quantityItem, orderedItems, 50.0));
+         orderList.add(new CatalogOrder(4, 4,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, Month.DECEMBER, 10), "1", quantityItem, orderedItems, 50.0));
+         orderList.add(new CatalogOrder(5, 5,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, Month.DECEMBER, 10), "1", quantityItem, orderedItems, 50.0));
+         orderList.add(new CatalogOrder(6, 6,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, Month.DECEMBER, 10), "1", quantityItem, orderedItems, 889.0));
+         orderList.add(new CatalogOrder(7, 7,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, Month.DECEMBER, 10), "1", quantityItem, orderedItems, 777.0));
+         
+        
+         iCustomerOrder.add(new CatalogOrder(1, 1,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, Month.DECEMBER, 10), "1", quantityItem, orderedItems, 50.0));
+        iCustomerOrder.add(new CatalogOrder(2, 2,  LocalTime.now(),LocalDate.now(), "Cash on Delivery", "Unpaid", LocalDate.of(2018, Month.DECEMBER, 10), "1", quantityItem, orderedItems, 50.0));
+         iCustomerOrder.add(new CatalogOrder(3, 3,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, Month.DECEMBER, 10), "1", quantityItem, orderedItems, 50.0));
+         iCustomerOrder.add(new CatalogOrder(4, 4,  LocalTime.now(),LocalDate.now(), "Cash on Delivery", "Unpaid", LocalDate.of(2018, Month.DECEMBER, 10), "1", quantityItem, orderedItems, 50.0));
+         iCustomer.add(new IndividualCustomer("Jason", 1, "99, Lorong abc", "012345678", "abc@gmail.com", "Individual", 43300,"Kuala Lumpur", "Cheras"));
         iCustomer.add(new IndividualCustomer("Tf", 2, "99, Lorong abcdef", "012345678", "abcdef@gmail.com", "Individual", 43300,"Kuala Lumpur", "Cheras"));
+        iCustomer.add(new IndividualCustomer("Hazard", 4, "77, Lorong Aman", "012345678", "hazard@gmail.com", "Individual", 43300,"Kuala Lumpur", "Cheras"));
+        
+        
         
        //Alex hardcoded
         itemsList.add(item1);
@@ -97,27 +132,22 @@ public class FLORALMAIN {
         OrderList.add(hardCoded2);
         OrderList.add(hardCoded3);
         
-        //WQ hardcoded
-        orderedItems.add(item1);
-        orderedItems.add(item2);
-        orderedItems.add(item3);
-        orderedItems.add(item4);
-        orderedItems.add(item5);
        
         
         //CatalogMaintenance catalogMaintenance = new CatalogMaintenance();
         int select = 0;
-//        do{
+        int userEnter = 0;
+       do{
             
             System.out.println("Floral shop system");
             System.out.println("1. Customer Maintenance");
             System.out.println("2. Catalog Maintenance");
             System.out.println("3. Order");
             System.out.println("4. Customise Floral");
-            System.out.println("5. Deliver order");
+            System.out.println("5. Pick-up/Delivery and Payment Management");
             System.out.println("6. Exit");
             
-            int userEnter = sc.nextInt();
+           userEnter  = sc.nextInt();
             if( userEnter == 1){
 //                 select = customerMaintenance.menu();
                  customerMaintenance.menu();
@@ -137,7 +167,7 @@ public class FLORALMAIN {
                 System.exit(0);
             }
 
-//        }while(select!=6);
+       }while(userEnter==1||userEnter==2||userEnter==3||userEnter==4||userEnter==5);
     }
     public Item a(){
         return item1;

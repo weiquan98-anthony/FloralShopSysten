@@ -15,6 +15,7 @@ public interface customermaintenanceInvoiceInterface {
     public void viewCustomer();
     public void viewInvoice();
     public void generateMonthlyInvoice();
+    public void setMonthlyCredit();
     
     
 }
