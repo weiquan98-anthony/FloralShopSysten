@@ -76,6 +76,7 @@ public class FLORALMAIN {
         iCustomer.add(new IndividualCustomer("Jason", 1, "99, Lorong abc", "012345678", "abc@gmail.com", "Individual", 43300,"Kuala Lumpur", "Cheras"));
         iCustomer.add(new IndividualCustomer("Tf", 2, "99, Lorong abcdef", "012345678", "abcdef@gmail.com", "Individual", 43300,"Kuala Lumpur", "Cheras"));
         
+        
        //Alex hardcoded
         itemsList.add(item1);
         itemsList.add(item2); 
