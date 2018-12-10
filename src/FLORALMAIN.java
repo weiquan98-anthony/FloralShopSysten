@@ -33,6 +33,8 @@ public class FLORALMAIN {
     
     //Alex
     public static LinkedList<Item> itemsList = new LinkedList<Item>(); 
+    public static LinkedList<Item> itemPromotionList = new LinkedList<>();
+    public static LinkedList<Promotion> promoList = new LinkedList<>();
     
     
     //WQ
@@ -48,21 +50,25 @@ public class FLORALMAIN {
     public static Customize customize = new Customize();
     public static AssignmentD assd = new AssignmentD();
     
+    public static Item item1 = new Item(1,"Sunset Roses", 75, 20, "Bouquet");
+    public static Item item2 = new Item(2,"Great Eastern Daisies", 89, 0, "Bouquet");
+    public static Item item3 = new Item(3,"Beyond Purple", 88, 10, "Flower Baskets");
+    public static Item item4 = new Item(4,"Basket Daisy", 99, 8, "Flower Baskets");
+    public static Item item5 = new Item(5,"Premium Flower Stand", 95, 6, "Flower Stands");
     public static void main(String[] args) {
-        
-        
-        
         //Items hardcoded data
-        Item item1 = new Item(1,"Sunset Roses", 75, 20, "Bouquet");
-        Item item2 = new Item(2,"Great Eastern Daisies", 89, 0, "Bouquet");
-        Item item3 = new Item(3,"Beyond Purple", 88, 10, "Flower Baskets");
-        Item item4 = new Item(4,"Basket Daisy", 99, 8, "Flower Baskets");
-        Item item5 = new Item(5,"Premium Flower Stand", 95, 6, "Flower Stands");
+            
+
         
+        
+            
         //Order hardcoded data
         CatalogOrder hardCoded = new CatalogOrder(1, 1,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, 12, 2), "1", quantityItem, orderedItems1, 50.0);
         CatalogOrder hardCoded2 = new CatalogOrder(2, 2,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, 12, 2), "1", quantityItem, orderedItems1, 50.0);
         CatalogOrder hardCoded3 = new CatalogOrder(3, 3,  LocalTime.now(), LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, 12, 2), "1", quantityItem, orderedItems1, 50.0);
+        
+        //Promotion hardcoded data
+        Promotion promotion1 = new Promotion(1, "Year End Sales", LocalDate.of(2018, 12, 1), LocalDate.of(2018, 12, 31), itemPromotionList);
         
         //Jason hardcoded
         ccList.add(new CorporateCustomer(1, "Jalan Sg2", "0123456788", "j@bhd.com","cc", 55300, "Setapak", "KL", 888, "J.BHD", "a",0, 0, 0));
@@ -76,6 +82,7 @@ public class FLORALMAIN {
         itemsList.add(item3); 
         itemsList.add(item4); 
         itemsList.add(item5); 
+        promoList.add(promotion1);
         
         //TF hardcoded
         quantityItem.add(4);
@@ -131,5 +138,20 @@ public class FLORALMAIN {
             }
 
 //        }while(select!=6);
+    }
+    public Item a(){
+        return item1;
+    }
+    public Item b(){
+        return item2;
+    }
+    public Item c(){
+        return item3;
+    }
+    public Item d(){
+        return item4;
+    }
+    public Item e(){
+        return item5;
     }
 }

@@ -16,6 +16,8 @@ public interface ItemInterface {
     public void showList();
     public void showItemList();
     public void deleteStock();
+    public void promotion();
+    public void viewPromotion();
 //    public void setPrice(double price);
 //    double getPrice();
 //    public void setQuantity(int quantity);
