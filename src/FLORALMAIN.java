@@ -113,6 +113,7 @@ public class FLORALMAIN {
         iCustomer.add(new IndividualCustomer("Hazard", 4, "77, Lorong Aman", "012345678", "hazard@gmail.com", "Individual", 43300,"Kuala Lumpur", "Cheras"));
         
         
+
         
        //Alex hardcoded
         itemsList.add(item1);
@@ -121,6 +122,7 @@ public class FLORALMAIN {
         itemsList.add(item4); 
         itemsList.add(item5); 
         promoList.add(promotion1);
+        
         
         //TF hardcoded
         quantityItem.add(4);
