@@ -243,7 +243,7 @@ public class Customize{
 //        for(int i=0;i>currentCust.getCustomList().size();i++){
 //            last = currentCust.getCustomList().get(i);
 //        }
-        
+       
         if(last < cust1Priority){
             llist.add(0, currentCust);
         }else if(last > cust1Priority && last < cust2Priority){
