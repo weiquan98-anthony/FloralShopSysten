@@ -68,9 +68,12 @@ public class FLORALMAIN {
         
             
         //Order hardcoded data
-        CatalogOrder hardCoded = new CatalogOrder(1, 1,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, 12, 2), "1", quantityItem, orderedItems1, 50.0);
-        CatalogOrder hardCoded2 = new CatalogOrder(2, 2,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, 12, 2), "1", quantityItem, orderedItems1, 50.0);
-        CatalogOrder hardCoded3 = new CatalogOrder(3, 3,  LocalTime.now(), LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, 12, 2), "1", quantityItem, orderedItems1, 50.0);
+
+        CatalogOrder hardCoded = new CatalogOrder(1, 1,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, 12, 6), "1", quantityItem, orderedItems1, 50.0);
+        CatalogOrder hardCoded2 = new CatalogOrder(2, 2,  LocalTime.now(),LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, 12, 6), "1", quantityItem, orderedItems1, 50.0);
+        CatalogOrder hardCoded3 = new CatalogOrder(3, 3,  LocalTime.now(), LocalDate.now(), "Pick-Up", "Unpaid", LocalDate.of(2018, 12, 6), "1", quantityItem, orderedItems1, 50.0);
+
+        
         
         //Promotion hardcoded data
         Promotion promotion1 = new Promotion(1, "Year End Sales", LocalDate.of(2018, 12, 1), LocalDate.of(2018, 12, 31), itemPromotionList);
@@ -110,7 +113,7 @@ public class FLORALMAIN {
         iCustomer.add(new IndividualCustomer("Hazard", 4, "77, Lorong Aman", "012345678", "hazard@gmail.com", "Individual", 43300,"Kuala Lumpur", "Cheras"));
         
         
-        
+
         
        //Alex hardcoded
         itemsList.add(item1);
