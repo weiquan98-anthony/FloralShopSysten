@@ -7,6 +7,7 @@
 
 
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -18,6 +19,7 @@ import java.util.Scanner;
 public class CatalogMaintenance implements ItemInterface{
     public boolean a = false;
     public boolean b = false;
+    public boolean c = false;
     
     private ArrayList<Item> stockList = new ArrayList<>();
    
@@ -30,19 +32,20 @@ public class CatalogMaintenance implements ItemInterface{
         int catalogmenucount = 0;
         int startcount=0;
         
-        for(int i =0; i<cust.itemsList.size(); i++){
-            if(cust.itemsList.get(i).getQuantity()<=0){
-                stockList.add(cust.itemsList.get(i));
-            }
-        }
+//        for(int i =0; i<cust.itemsList.size(); i++){
+//            if(cust.itemsList.get(i).getQuantity()<0){
+//                stockList.add(cust.itemsList.get(i));
+//            }
+//        }
         System.out.println("*******NOTICE**********");
         System.out.println("Following items are out of stock!!");
         System.out.println("No.\t  Item\t\t\t" + "   Quantity");
         System.out.println("******************************************************");
-        for(int j =0; j<stockList.size(); j++){
+        for(int j =0; j<cust.itemsList.size(); j++){
+            if(cust.itemsList.get(j).getQuantity()<=0){
+                System.out.printf("%d.%22s\t\t%-25d\n\n", startcount, cust.itemsList.get(j).getName(), cust.itemsList.get(j).getQuantity());
+            }
             startcount++;
-            
-            System.out.printf("%d.%22s\t\t%-25d\n\n", startcount, cust.itemsList.get(j).getName(), cust.itemsList.get(j).getQuantity());
         }
         
         do{
@@ -51,7 +54,7 @@ public class CatalogMaintenance implements ItemInterface{
             }
             System.out.println("Menu: ");
             System.out.println("1.Catalogue Maintenance");
-            System.out.println("2.Main Menu");
+            System.out.println("2.Back to Main Menu");
             System.out.println("3.Exit");
             System.out.println("Please Enter your choice : ");
             option = s.nextInt();
@@ -64,7 +67,9 @@ public class CatalogMaintenance implements ItemInterface{
                     System.out.println("2.Add Item");
                     System.out.println("3.Update Stock");
                     System.out.println("4.Delete Item");
-                    System.out.println("5.Exit");
+                    System.out.println("5.Create Promotion");
+                    System.out.println("6.View Promotion");
+                    System.out.println("7.Exit");
                     System.out.println("Please Enter your choice : ");
                     option = s.nextInt();
 
@@ -77,12 +82,16 @@ public class CatalogMaintenance implements ItemInterface{
                     }else if(option == 3){
                         updateStock();
                         a = true;
-                    }
-                    else if(option == 4){
+                    }else if(option == 4){
                         deleteStock();
                         a = true;
-                    }
-                    else if(option == 5){
+                    }else if(option == 5){
+                        promotion();
+                        a = true;
+                    }else if(option==6){
+                        viewPromotion();
+                        a = true;
+                    }else if(option == 7){
                         System.exit(0);
                     }
                     catalogmenucount++;
@@ -354,5 +363,179 @@ public class CatalogMaintenance implements ItemInterface{
 //                    itemsList.get(1).setQuantity(a.nextInt());
 //                   showList();
 //                }
+    }
+    
+    public void promotion(){
+        Promotion promo = new Promotion();
+        Scanner s = new Scanner(System.in);
+        String text = null;
+        String text1 = null;
+        int promocount = 0;
+        
+        System.out.print("ID:");
+
+        promo.setId(cust.promoList.size()+1);
+        System.out.println(promo.getId());
+        System.out.println("Enter Promotion title: ");
+        promo.setTitle(s.next());
+        System.out.println("Enter start date e.g. 2018-12-10: ");
+        text = s.next();
+        promo.setStartdaDate(LocalDate.parse(text));
+        System.out.println("Enter end date e.g. 2018-12-31: ");
+        text1 = s.next();
+        promo.setEndDate(LocalDate.parse(text1));
+        cust.promoList.add(promo);
+        
+        System.out.println("New promotion successfully created!\n");
+        
+        do{
+            if(promocount>=1){
+                System.out.println("Wrong number entered!");
+            }
+            System.out.println("1.Return to Main Menu");
+            System.out.println("2.Exit");
+            System.out.println("Please choose an option e.g. 2 to exit");
+            promocount = s.nextInt(); 
+            if(promocount==1){
+                CatalogMaintain();
+                a = true;
+            }else if(promocount==2){
+                System.exit(0);
+            }
+            promocount++;
+        }while(a!=true);
+        
+        
+    }
+    
+    public void viewPromotion(){
+        boolean d = false;
+        Scanner vp = new Scanner(System.in);
+        Item item = new Item();
+        int num = 0;
+        int viewcount = 0;
+        int vpchoice = 0;
+        int afterchoice = 0;
+        
+        
+        System.out.println("No.\tPromotion");
+        System.out.println("***************************************************************************************");
+        for(int k =0; k<cust.promoList.size(); k++){
+            num++;
+            System.out.println(num + "\t" + cust.promoList.get(k).getTitle());
+            for(int ab = 0; ab<cust.itemPromotionList.size(); ab++){
+                System.out.println(cust.itemPromotionList.get(ab).getName());
+            }
+        }
+        
+        do{
+            if(viewcount>=1){
+                System.out.println("Wrong number entered!");
+            }
+            System.out.println("Choose promotion number to add items");
+            viewcount = vp.nextInt();
+            if(viewcount==1){
+                
+                a = true;
+                showList();
+                System.out.println("Select items to be added");
+                vpchoice = vp.nextInt();
+                do{
+                    if(vpchoice == 1){
+                        cust.itemPromotionList.add(cust.a());
+                        c = true;
+                        System.out.println("Item succesfully added into the promotion!");
+                        while(d!= true){
+                            System.out.println("1. Add again");
+                            System.out.println("2. Return to main menu");
+                            System.out.println("3. Exit");
+                            afterchoice = vp.nextInt();
+                            if(afterchoice == 1){
+                                viewPromotion();
+                                d = true;
+                            }else if(afterchoice == 2){
+                                CatalogMaintain();
+                                d = true;
+                            }else if(afterchoice == 3){
+                                System.exit(0);
+                            }
+                        }
+                    }else if(vpchoice == 2){
+                        cust.itemPromotionList.add(cust.b());
+                        c = true;
+                        while(d!= true){
+                            System.out.println("1. Add again");
+                            System.out.println("2. Return to main menu");
+                            System.out.println("3. Exit");
+                            afterchoice = vp.nextInt();
+                            if(afterchoice == 1){
+                                viewPromotion();
+                                d = true;
+                            }else if(afterchoice == 2){
+                                CatalogMaintain();
+                                d = true;
+                            }else if(afterchoice == 3){
+                                System.exit(0);
+                            }
+                        }
+                    }else if(vpchoice == 3){
+                        cust.itemPromotionList.add(cust.c());
+                        c = true;
+                        while(d!= true){
+                            System.out.println("1. Add again");
+                            System.out.println("2. Return to main menu");
+                            System.out.println("3. Exit");
+                            afterchoice = vp.nextInt();
+                            if(afterchoice == 1){
+                                viewPromotion();
+                                d = true;
+                            }else if(afterchoice == 2){
+                                CatalogMaintain();
+                                d = true;
+                            }else if(afterchoice == 3){
+                                System.exit(0);
+                            }
+                        }
+                    }else if(vpchoice == 4){
+                        cust.itemPromotionList.add(cust.d());
+                        c = true;
+                        while(d!= true){
+                            System.out.println("1. Add again");
+                            System.out.println("2. Return to main menu");
+                            System.out.println("3. Exit");
+                            afterchoice = vp.nextInt();
+                            if(afterchoice == 1){
+                                viewPromotion();
+                                d = true;
+                            }else if(afterchoice == 2){
+                                CatalogMaintain();
+                                d = true;
+                            }else if(afterchoice == 3){
+                                System.exit(0);
+                            }
+                        }
+                    }else if(vpchoice == 5){
+                        cust.itemPromotionList.add(cust.e());
+                        c = true;
+                        while(d!= true){
+                            System.out.println("1. Add again");
+                            System.out.println("2. Return to main menu");
+                            System.out.println("3. Exit");
+                            afterchoice = vp.nextInt();
+                            if(afterchoice == 1){
+                                viewPromotion();
+                                d = true;
+                            }else if(afterchoice == 2){
+                                CatalogMaintain();
+                                d = true;
+                            }else if(afterchoice == 3){
+                                System.exit(0);
+                            }
+                        }
+                    }
+                }while(c!= true);
+  
+            viewcount++;
+        }}while(a!=true);
     }
 }
