@@ -23,7 +23,7 @@ public class CatalogOrder {
     private LocalDate deliveryDate;
     private String deliveryTime;
     private double subtotal;
-
+    
 
 
    public CatalogOrder(){
@@ -75,7 +75,20 @@ public class CatalogOrder {
     }
 
     
-
+    public String getOrderListItem(){
+        String temp = "";
+        for(int i =0; i<orderedItems.size(); i++){
+            if(i!=orderedItems.size()-1){
+                temp += orderedItems.get(i).getName() + " , " ;
+            }else{
+                temp += orderedItems.get(i).getName() ;
+            }
+            
+            
+        }
+        
+        return temp;
+    }
    
 
     public LinkedList<Integer> getItemQuantity() {

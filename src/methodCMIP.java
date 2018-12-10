@@ -6,6 +6,8 @@
 
 
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.Scanner;
 
 /**
@@ -152,7 +154,8 @@ public class methodCMIP implements customermaintenanceInvoiceInterface{
             System.out.println("2.ViewCustomer:");
             System.out.println("3.ViewInvoicePayment:");
             System.out.println("4.GenerateMonthlyInvoicePayment:");
-            System.out.println("5. Exit to Main Menu:");
+            System.out.println("5.setMonthlyCredit");
+            System.out.println("6. Exit to Main Menu:");
             System.out.println("*****************************");
             
             System.out.print("Please select ur option:");
@@ -227,8 +230,24 @@ public class methodCMIP implements customermaintenanceInvoiceInterface{
                     }
                     a = true;
                 }while(respond ==1);
+            }
+                
+                 else if(select ==5)
+            {
+                setMonthlyCredit();
+                int respond;  
+                do{
+                System.out.print("Do you want back to menu?(1=yes):");
+                respond = menu.nextInt();
+                    if(respond== 1)
+                    {
+                        menu();
+                    }
+                    a = true;
+                }while(respond ==1);
                
-            }else if(select == 5){
+            }
+                 else if(select == 6){
                 a = true;
                 int b = select;
             }
@@ -293,8 +312,9 @@ public class methodCMIP implements customermaintenanceInvoiceInterface{
                    if(cust.OrderList.get(j).getCustID()==currentCust.getCustID())
                {
                    double remain =currentCust.getCreditLimit()-cust.OrderList.get(j).getSubtotal();
+                   currentCust.remainLimit = remain;
                    System.out.printf("Company Name*"+"\t"+"Order Id*"+"\t"+"Customer Id*"+"\t"+"Credit Limit*" +"\t"+" CustomerDebt \t"+"RemainCreLimit\t"+"\n");
-                   System.out.printf("%8s \t"+"O00"+"%-15d "+"CC00"+"%-10d  RM%4.2f \t RM%4.2f\t RM%4.2f \n",currentCust.getCompanyName(),cust.OrderList.get(j).getOrderID(),currentCust.getCustID(),currentCust.getCreditLimit(),cust.OrderList.get(j).getSubtotal(),remain);
+                   System.out.printf("%8s \t"+"O00"+"%-15d "+"CC00"+"%-10d  RM%4.2f \t RM%4.2f\t RM%4.2f \n",currentCust.getCompanyName(),cust.OrderList.get(j).getOrderID(),currentCust.getCustID(),currentCust.getCreditLimit(),cust.OrderList.get(j).getSubtotal(),currentCust.getRemainLimit());
                   // System.out.println(currentCust.getCompanyName() +"\t"+ OrderList.get(j).getOrderID() +"\t"+ currentCust.getCustID() +"\t"+ OrderList.get(j).getSubtotal());
                                  
                   System.out.println("---------------PURCHASE HISTORY----------------");
@@ -361,4 +381,71 @@ public class methodCMIP implements customermaintenanceInvoiceInterface{
         a=true;
     }while(a!=true);
     }
-}
+     public void setMonthlyCredit()
+     {
+         CorporateCustomer currentCust = new CorporateCustomer();
+      //   double debt =currentCust.creditLimit -currentCust.remainLimit;
+       //  currentCust.debt =debt;
+         
+         for(int i=0;i<cust.ccList.size();i++)
+         {
+             
+             int ccID = cust.ccList.get(i).getCustID(); //get id from corporate customer
+             for(int j=0; j<cust.paymentList.size(); j++){
+                 
+                 if(ccID == cust.paymentList.get(j).getCustId()){ //compare with paymentlist cust id
+                     
+                     currentCust = cust.ccList.get(i);
+                     
+                     for(int k =0; k<cust.orderList.size(); k++){ 
+                         
+                         if(currentCust.getCustID() == cust.orderList.get(k).getCustID()){ //compare order list cust id with current cust
+                             
+                      currentCust.debt = cust.orderList.get(k).getSubtotal();
+                                
+                         if(LocalDate.now().equals(LocalDate.of(2018, Month.JANUARY, 7)))
+                         {
+                              if(cust.paymentList.get(j).getUserPayAmount() == cust.ccList.get(i).getDebt()){
+                                cust.ccList.get(i).setStatus("Finish-Paid");
+                                System.out.println("************************************************************************************************");
+                                System.out.printf("Company Name*"+"\t"+"\t"+"Customer Id*"+"\t"+"Credit Limit*" +"\t"+" CustomerDebt \t"+"CustomerPay\t"+"Status \t"+"\n");
+                                System.out.printf("%8s \t"+"CC00"+"%-10d  RM%4.2f \t RM%.2f\t RM%.2f\t %30s \n",currentCust.getCompanyName(),currentCust.getCustID(),currentCust.getCreditLimit(),currentCust.getDebt() ,cust.paymentList.get(j).getUserPayAmount(),cust.ccList.get(i).getStatus());
+                              }
+                              else if(cust.paymentList.get(j).getUserPayAmount() != cust.ccList.get(i).getDebt())
+                              {
+                                cust.ccList.get(i).setStatus("Non-Finish-Paid");
+                                System.out.println("************************************************************************************************");
+                                System.out.printf("Company Name*"+"\t"+"\t"+"Customer Id*"+"\t"+"Credit Limit*" +"\t"+" CustomerDebt \t"+"CustomerPay\t"+"Status \t"+"\n");
+                                System.out.printf("%8s \t"+"CC00"+"%-10d  RM%4.2f \t RM%.2f\t RM%.2f\t %30s \n",currentCust.getCompanyName(),currentCust.getCustID(),currentCust.getCreditLimit(),currentCust.getDebt(),cust.paymentList.get(j).getUserPayAmount(),cust.ccList.get(i).getStatus());
+                              }
+                              
+                          }
+                         else if(LocalDate.now().equals(LocalDate.of(2018, Month.JANUARY, 7))==false)
+                         {
+                             if(cust.paymentList.get(j).getUserPayAmount() == cust.ccList.get(i).getDebt()){
+                                currentCust.setStatus("Debt is 0 but pending update");
+                                System.out.println("************************************************************************************************");
+                                System.out.printf("Company Name*"+"\t"+"\t"+"Customer Id*"+"\t"+"Credit Limit*" +"\t"+" CustomerDebt \t"+"CustomerPay\t"+"Status \t"+"\n");
+                                System.out.printf("%8s \t"+"CC00"+"%-10d  RM%4.2f \t RM%.2f\t RM%.2f\t %30s \n",currentCust.getCompanyName(),currentCust.getCustID(),currentCust.getCreditLimit(),currentCust.getDebt(),cust.paymentList.get(j).getUserPayAmount(),currentCust.getStatus());
+                              }
+                              else if(cust.paymentList.get(j).getUserPayAmount() != cust.ccList.get(i).getDebt())
+                              {
+                                currentCust.setStatus("Pending payment");
+                                System.out.println("************************************************************************************************");
+                                System.out.printf("Company Name*"+"\t"+"\t"+"Customer Id*"+"\t"+"Credit Limit*" +"\t"+" CustomerDebt \t"+"CustomerPay\t"+"Status \t"+"\n");
+                                System.out.printf("%8s \t"+"CC00"+"%-10d  RM%4.2f \t RM%.2f\t RM%.2f\t %30s \n",currentCust.getCompanyName(),currentCust.getCustID(),currentCust.getCreditLimit(),currentCust.getDebt(),cust.paymentList.get(j).getUserPayAmount(),currentCust.getStatus());
+                              }
+                         }
+                      
+                         } 
+                         else
+                         {
+                             
+                         }
+                 }
+             }
+         }
+             }}}
+     
+
+     
