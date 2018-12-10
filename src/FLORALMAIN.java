@@ -84,6 +84,7 @@ public class FLORALMAIN {
         itemsList.add(item5); 
         promoList.add(promotion1);
         
+        
         //TF hardcoded
         quantityItem.add(4);
         categoryList.add(item1);
