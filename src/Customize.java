@@ -238,6 +238,7 @@ public class Customize{
             llist.add(cust2.toString());
         }
         
+        
         int last = currentCust.getCustomList().lastElement();
 //        for(int i=0;i>currentCust.getCustomList().size();i++){
 //            last = currentCust.getCustomList().get(i);
